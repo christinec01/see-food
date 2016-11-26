@@ -5,4 +5,5 @@ require_relative 'application'
 Rails.application.initialize!
 
 require 'dotenv'
+require 'bcrypt'
 Dotenv.load
