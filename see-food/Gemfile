@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem "react_on_rails", "~> 6"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -56,3 +56,5 @@ gem 'react-rails', '~> 1.0'
 gem 'google_places'
 gem 'dotenv-rails'
 gem 'bcrypt'
+
+gem 'mini_racer', platforms: :ruby
