@@ -15,6 +15,13 @@ export default class Main extends React.Component {
     console.log(this.props.url)
     return (
       <div className="container">
+      <form>
+      <label>
+      Zip:
+      <input type="text" name="zip" />
+      </label>
+      <input type="submit" value="Submit" />
+      </form>
         {this.props.spots.map((spot, i) => (
           <div>{spot.name}
           <img src={this.props.url[i]} alt=""/>
