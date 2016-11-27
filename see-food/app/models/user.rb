@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :likes
+    
  # users.password_hash in the database is a :string
  include BCrypt
 
