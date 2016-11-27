@@ -15,20 +15,10 @@ export default class Main extends React.Component {
     console.log(this.props.url)
     return (
       <div className="container">
-      <form>
-      <label>
-      Zip:
-      <input type="text" name="zip" />
-      </label>
-      <input type="submit" value="Submit" />
-      </form>
+
         {this.props.spots.map((spot, i) => (
           <div>{spot.name}
           <img src={this.props.url[i]} alt=""/>
-          {/* <img src={spot.photos[0].fetch_url(800)} alt=""/> */}
-          {/* <img src={"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + spot.photos.photo_reference} alt=""/> */}
-          {/* <img src={spot.icon} alt=""/> */}
-          {/* <img src="https://lh6.googleusercontent.com/-L13PKlmOiS4/V73Ev-ldNEI/AAAAAAAAAEA/d8L8z9qSXwkuX4KliyJ9HzgZthHiO8MCQCJkC/w310-h336-p-k-no/" alt=""/> */}
           </div>
         ))}
       </div>
