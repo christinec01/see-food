@@ -10,6 +10,7 @@ const config = {
     'es5-shim/es5-sham',
     'babel-polyfill',
     './app/bundles/SeeFood/startup/SeeFoodApp',
+    './app/bundles/SeeFood/startup/Landing',
   ],
 
   output: {

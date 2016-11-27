@@ -1,3 +1,73 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.overlay{
+  position:fixed;
+   background:url(http://www.4scaters.com/wp-content/uploads/2015/06/foodgrid.png);
+  -webkit-animation:100s scroll infinite linear;
+  -moz-animation:100s scroll infinite linear;
+  -o-animation:100s scroll infinite linear;
+  -ms-animation:100s scroll infinite linear;
+  animation:100s scroll infinite linear;
+  top:0;
+  left:0;
+  width:100%;
+ height:100%;
+ opacity:0.7;
+}
+
+@-webkit-keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
+@-moz-keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
+@-o-keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
+@-ms-keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
+@keyframes scroll{
+  100%{
+    background-position:0px -3000px;
+  }
+}
+
+.zip-modal {
+    box-sizing: border-box;
+    position: absolute;
+    width: 515px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    margin-left: -257.5px;
+    margin-top: -217.5px;
+    padding: 10px 12px 0 12px;
+    background: #141414;
+    background: rgba(0,0,0,0.8);
+    border-radius: 20px;
+    z-index: 1;
+    text-align: center;
+}
+
+.modal-footer {
+  text-align: center;
+}
+
+h1 {
+  color: #ffffff;
+}
