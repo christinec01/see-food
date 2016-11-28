@@ -48,15 +48,10 @@ class Form extends React.Component {
           {this.props.showUserLoginForm ? null : <h1>See Food</h1> }
           {this.props.showRegistrationForm ? <h1>Register</h1> : null }
           {this.props.showUserLoginForm ? <h1>Log In</h1> : null }
-          {this.props.showUserLoginForm ? null : <form className="zip-form" action="/landings" method="POST">
+          {(this.props.showUserLoginForm || this.props.showRegistrationForm) ? null : <form className="zip-form" action="/landings" method="POST">
               <input type="text" name="zip" placeholder="Enter zip code" />
               <input className="btn btn-primary btn-sm" type="submit" value="Submit" />
             </form> }  
-
-          {this.props.showRegistrationForm ? null : <form className="zip-form" action="/landings" method="POST">
-            <input type="text" name="zip" placeholder="Enter zip code" />
-            <input className="btn btn-primary btn-sm" type="submit" value="Submit" />
-          </form> }  
             
             <div className="modal-footer">
 
