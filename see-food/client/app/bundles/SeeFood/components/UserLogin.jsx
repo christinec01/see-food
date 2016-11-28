@@ -33,9 +33,9 @@ class UserLogin extends React.Component {
 	render() {
 		return (
 			<form onSubmit={this.handleSubmit} className="session-edit">
-				<span><input name="email" onChange={this.handleChange} type="email" placeholder="Email"/>
+				<input name="email" onChange={this.handleChange} type="email" placeholder="Email"/>
 				<input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
-				<button className="landing-buttons" type="submit"> Login </button></span>
+				<button className="landing-buttons" type="submit"> Login </button>
 			</form>
 		)
 	}

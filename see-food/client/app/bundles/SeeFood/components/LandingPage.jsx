@@ -36,15 +36,15 @@ class Form extends React.Component {
           <div className="modal-body">
           {this.props.showUserLoginForm ? null : <h1>See Food</h1> }
           {this.props.showUserLoginForm ? <h1>Log In</h1> : null }
-          {this.props.showUserLoginForm ? null : <form action="/landings" method="POST">
+          {this.props.showUserLoginForm ? null : <form className="zip-form" action="/landings" method="POST">
               <input type="text" name="zip" placeholder="Enter zip code" />
-              <input type="submit" value="Submit" />
+              <input className="btn btn-primary btn-sm" type="submit" value="Submit" />
             </form> }  
             
             <div className="modal-footer">
-              {this.props.showUserLoginForm ? null : <input type="submit" value="Register" className="landing-buttons" /> }
+              {this.props.showUserLoginForm ? null : <input type="submit" value="Register" className="landing-buttons btn btn-outline-secondary" /> }
               
-              {this.props.showUserLoginForm ? null : <input onClick={this.props.handleClick} type="submit" value="Login" className="landing-buttons" /> }
+              {this.props.showUserLoginForm ? null : <input onClick={this.props.handleClick} type="submit" value="Login" className="landing-buttons btn btn-outline-secondary" /> }
               
               {this.props.showUserLoginForm ? <UserLogin /> : null }
             </div>
