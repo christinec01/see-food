@@ -11,10 +11,10 @@ class RestaurantsController < ApplicationController
                             token_secret: ENV['TOKEN_SECRET']
                           })
 
-    @restaurants = client.search(params[:format], { term: 'food', limit: 1 })
+    @restaurants = client.search(params[:format], { term: 'food'})
 
     @spots = @restaurants.businesses.select { |spot| spot.is_closed == false }
-  
+
     @url = @spots.map { |spot| enlarge_image(spot.image_url) }
 
   end
