@@ -1,19 +1,27 @@
 class RestaurantsController < ApplicationController
   def index
-    p "*"*20
-    p params[:format]
-    @restaurant = GooglePlaces::Client.new(ENV['GOOGLE_API_KEY'])
-    @spots = @restaurant.spots_by_query(params[:format], types: 'restaurant')
-    .select{|spot| spot if spot.photos.length > 0 && spot.opening_hours['open_now'] == true}
 
-    @url = @spots.map do |spot|
-      spot.photos[0].fetch_url(800)
+    def enlarge_image(string)
+      string.gsub(/([m][s][.][j][p][g])/, "o.jpg")
     end
+
+    client = Yelp::Client.new({ consumer_key: ENV['CONSUMER_KEY'],
+                            consumer_secret: ENV['CONSUMER_SECRET'],
+                            token: ENV['TOKEN'],
+                            token_secret: ENV['TOKEN_SECRET']
+                          })
+
+    @restaurants = client.search(params[:format], { term: 'food'})
+
+    @spots = @restaurants.businesses.select { |spot| spot.is_closed == false }
+
+    @url = @spots.map { |spot| enlarge_image(spot.image_url) }
+
   end
 
-def show
+  def show
 
-end
+  end
 
 
 end

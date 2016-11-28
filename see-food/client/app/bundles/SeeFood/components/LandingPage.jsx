@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import Registration from '../components/Registration';
+import UserLogin from './UserLogin';
+
 
 // Simple example of a React "dumb" component
 export default class LandingPage extends React.Component {
@@ -8,14 +10,20 @@ export default class LandingPage extends React.Component {
     super();
     this.state = {
       showRegistrationForm: false,
+      showUserLoginForm: false,
     }
   }
   handleChange(e) {
     const name = e.target.value;
     this.props.updateName(name);
   }
+
   handleRegistrationClick = (e) => {
     this.setState({showRegistrationForm: true});
+  }
+
+  handleClick = (e) => {
+    this.setState({showUserLoginForm: true});
   }
   render() {
     return (
@@ -23,8 +31,9 @@ export default class LandingPage extends React.Component {
         <Form
           showRegistrationForm={this.state.showRegistrationForm}
           handleRegistrationClick={this.handleRegistrationClick}
+          showUserLoginForm={this.state.showUserLoginForm}
+          handleClick={this.handleClick}
         />
-
       </div>
     );
   }
@@ -36,18 +45,33 @@ class Form extends React.Component {
       <div className="container">
         <div className="modal-content zip-modal">
           <div className="modal-body">
-            <h1>See Food</h1>
-            <form action="/landings" method="POST">
+          {this.props.showUserLoginForm ? null : <h1>See Food</h1> }
+          {this.props.showRegistrationForm ? <h1>Register</h1> : null }
+          {this.props.showUserLoginForm ? <h1>Log In</h1> : null }
+          {this.props.showUserLoginForm ? null : <form className="zip-form" action="/landings" method="POST">
               <input type="text" name="zip" placeholder="Enter zip code" />
-              <input type="submit" value="Submit" />
-            </form>
+              <input className="btn btn-primary btn-sm" type="submit" value="Submit" />
+            </form> }  
+
+          {this.props.showRegistrationForm ? null : <form className="zip-form" action="/landings" method="POST">
+            <input type="text" name="zip" placeholder="Enter zip code" />
+            <input className="btn btn-primary btn-sm" type="submit" value="Submit" />
+          </form> }  
+            
             <div className="modal-footer">
-              <input onClick={this.props.handleRegistrationClick} type="submit" value="Register" className="landing-buttons" />{this.props.showRegistrationForm ? <Registration /> : null}
-              <input type="submit" value="Login" className="landing-buttons" />
+
+              {this.props.showRegistrationForm ? null : <input onClick={this.props.handleRegistrationClick} type="submit" value="Register" className="landing-buttons btn btn-outline-secondary" /> }
+              
+              {this.props.showRegistrationForm ? <Registration /> : null}
+
+              {this.props.showUserLoginForm ? null : <input onClick={this.props.handleClick} type="submit" value="Login" className="landing-buttons btn btn-outline-secondary" /> }
+              
+              {this.props.showUserLoginForm ? <UserLogin /> : null }
+
             </div>
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
