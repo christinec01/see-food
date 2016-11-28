@@ -27,7 +27,7 @@ class UserLogin extends React.Component {
 	}
 
 	handleSubmit = (e) => {
-		fetch('sessions/create', {
+		fetch('sessions/login', {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',

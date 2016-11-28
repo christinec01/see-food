@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
      
   end
 
-  def create
+  def login
     p sessions.inspect
     p params.inspect
     user = User.find_by_email(params[:email])
