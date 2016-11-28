@@ -59,5 +59,6 @@ gem 'react-rails', '~> 1.0'
 gem 'google_places'
 gem 'dotenv-rails'
 gem 'bcrypt'
+gem 'yelp'
 
 gem 'mini_racer', platforms: :ruby
