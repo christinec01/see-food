@@ -5,9 +5,7 @@ class LandingsController < ApplicationController
   end
 
   def create
-    p params
     redirect_to restaurants_path(params[:zip])
-
   end
 
 end
