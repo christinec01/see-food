@@ -12,6 +12,7 @@ class UserLogin extends React.Component {
 			showModal: false,
 		}
 	}
+
 	createSession = (event) => {
 		const session = {
 			email: this.email.value, 
@@ -20,24 +21,34 @@ class UserLogin extends React.Component {
 		
 		this.sessionForm.reset();
 	}
+
 	handleChange = (e) => {
-		this.setState({[e.target.name]: e.target.value})
-		e.target.dataset.age
+		this.setState({ formData: {[e.target.name]: e.target.value}})
 	}
 
 	handleSubmit = (e) => {
-		$.ajax({
-			data: this.state.formData
+		fetch('sessions/create', {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				email: this.state.formData.email,
+				password: this.state.formData.password,
+			})
 		})
 	}
+
 	render() {
+		
 		return (
 			<form onSubmit={this.handleSubmit} className="session-edit">
-				<input name="email" onChange={this.handleChange} type="email" placeholder="Email"/>
-				<input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
-				<button className="landing-buttons" type="submit"> Login </button>
+			<input name="email" onChange={this.handleChange} type="email" placeholder="Email"/>
+			<input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
+			<button className="landing-buttons" type="submit"> Login </button>
 			</form>
-		)
+			)
 	}
 }
 
