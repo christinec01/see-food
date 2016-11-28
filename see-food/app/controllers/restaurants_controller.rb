@@ -14,12 +14,26 @@ class RestaurantsController < ApplicationController
     @restaurants = client.search(params[:format], { term: 'food', limit: 1 })
 
     @spots = @restaurants.businesses.select { |spot| spot.is_closed == false }
-  
+
     @url = @spots.map { |spot| enlarge_image(spot.image_url) }
 
   end
 
-  def show
+  def create
+    # expecting a spot from front end
+    @restaurant = Restaurant.new(
+      name: params[:name],
+      address: params[:address],
+      phone_number: params[:phone_number],
+      website: params[:website],
+      picture_url: params[:picture_url]
+      )
+    @restaurant.save
+
+    @like = Like.create(
+      user_id: current_user.id,
+      restaurant_id: @restaurant.id
+      )
 
   end
 

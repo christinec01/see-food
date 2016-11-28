@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :likes
+  has_many :restaurants, through: :likes
 
   # users.password_hash in the database is a :string
   include BCrypt
