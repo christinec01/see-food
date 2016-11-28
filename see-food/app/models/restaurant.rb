@@ -1,3 +1,3 @@
 class Restaurant < ApplicationRecord
-  has_many :pictures
+  has_many :likes
 end
