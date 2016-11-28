@@ -6,7 +6,6 @@ import Registration from '../components/Registration';
 const Landing = (props) => (
   <div>
     <LandingPage {...props} />
-    <Registration {...props} />
   </div>
 );
 

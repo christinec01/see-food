@@ -1,17 +1,30 @@
 import React, { PropTypes } from 'react';
+import Registration from '../components/Registration';
 
 // Simple example of a React "dumb" component
 export default class LandingPage extends React.Component {
   // React will automatically provide us with the event `e`
+  constructor() {
+    super();
+    this.state = {
+      showRegistrationForm: false,
+    }
+  }
   handleChange(e) {
     const name = e.target.value;
     this.props.updateName(name);
   }
-
+  handleRegistrationClick = (e) => {
+    this.setState({showRegistrationForm: true});
+  }
   render() {
     return (
       <div className="overlay">
-        <Form />
+        <Form
+          showRegistrationForm={this.state.showRegistrationForm}
+          handleRegistrationClick={this.handleRegistrationClick}
+        />
+
       </div>
     );
   }
@@ -29,7 +42,7 @@ class Form extends React.Component {
               <input type="submit" value="Submit" />
             </form>
             <div className="modal-footer">
-              <input type="submit" value="Register" className="landing-buttons" />
+              <input onClick={this.props.handleRegistrationClick} type="submit" value="Register" className="landing-buttons" />{this.props.showRegistrationForm ? <Registration /> : null}
               <input type="submit" value="Login" className="landing-buttons" />
             </div>
           </div>

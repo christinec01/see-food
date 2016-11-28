@@ -33,13 +33,14 @@ class RegistrationForm extends React.Component {
         <div className="modal-content">
           <div className="modal-body">
             <h1>Register</h1>
-              <form ref={(input) => this.first_name = input} type="text" placeholder="FirstName" className="first_name" onSubmit={(e) => this.createUser(e)}>
-                <input ref={(input) => this.last_name = input} type="text" placeholder="Last Name"/>
-                <input ref={(input) => this.username = input}type="text" placeholder="Username"/>
-                <input ref={(input) => this.email = input}type="email" placeholder="Email"/>
-                <input ref={(input) => this.password = input}type="password" placeholder="Password"/>
-                <button type="submit"> Register </button>
-              </form>
+              <form action="/users" method="POST">
+                <input type="text" name="user[first_name]" placeholder="First Name" />
+                <input type="text" name="user[last_name]" placeholder="Last Name" />
+                <input type="text" name="user[username]" placeholder="Username" />
+                <input type="email" name="user[email]" placeholder="Email" />
+                <input type="password" name="user[password]" placeholder="Password" />
+                <input type="submit" value="Register" />
+            </form>
           </div>
         </div>
       </div>
