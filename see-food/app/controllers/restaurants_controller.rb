@@ -16,7 +16,6 @@ class RestaurantsController < ApplicationController
     @spots = @restaurants.businesses.select { |spot| spot.is_closed == false }
 
     @url = @spots.map { |spot| enlarge_image(spot.image_url) }
-
   end
 
   def create
