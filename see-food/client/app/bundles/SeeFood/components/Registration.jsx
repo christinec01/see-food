@@ -30,7 +30,7 @@ class RegistrationForm extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="modal-content">
+        <div className="modal-content zip-modal">
           <div className="modal-body">
             <h1>Register</h1>
               <form action="/users" method="POST">
