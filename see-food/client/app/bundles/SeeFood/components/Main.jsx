@@ -17,8 +17,11 @@ export default class Main extends React.Component {
       <div className="container">
 
         {this.props.spots.map((spot, i) => (
-          <div>{spot.name}
-          <img src={this.props.url[i]} alt=""/>
+          <div className="container">
+          <button type="button" className="btn btn-warning">NO THANKS</button>
+          <button type="button" className="btn btn-danger">LIKE</button>
+          <img className="index-pic" src={this.props.url[i]} alt=""/>
+
           </div>
         ))}
       </div>
