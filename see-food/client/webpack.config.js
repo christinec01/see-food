@@ -4,6 +4,8 @@ const path = require('path');
 const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
 
+var glob = require('glob');
+
 const config = {
   entry: [
     'es5-shim/es5-shim',
@@ -11,7 +13,7 @@ const config = {
     'babel-polyfill',
     './app/bundles/SeeFood/startup/SeeFoodApp',
     './app/bundles/SeeFood/startup/Landing',
-  ],
+  ].concat(glob.sync("./app/bundles/**/startup/*")),
 
   output: {
     filename: 'webpack-bundle.js',
