@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Registration from '../components/Registration';
 import UserLogin from './UserLogin';
 
-
 // Simple example of a React "dumb" component
 export default class LandingPage extends React.Component {
   // React will automatically provide us with the event `e`
@@ -39,13 +38,32 @@ export default class LandingPage extends React.Component {
   }
 }
 
+/*
+  bla bla Form render() return (
+    <form className="" onSubmit={this.props.onSubmit}>
+      {...this.children}
+    </form>
+  )
+
+  bla bal OtherComponent render() return {
+    <Form onSubmit={somFucntion}>
+      <input name="first_name">
+    </Form>
+
+    <label>
+      <input />
+    </label>
+
+  }
+*/
+
 class Form extends React.Component {
   render() {
     return (
       <div className="container">
         <div className="modal-content zip-modal">
           <div className="modal-body">
-          {this.props.showUserLoginForm ? null : <h1>See Food</h1> }
+          {this.props.showUserLoginForm || this.props.showRegistrationForm ? null : <h1>See Food</h1> }
           {this.props.showRegistrationForm ? <h1>Register</h1> : null }
           {this.props.showUserLoginForm ? <h1>Log In</h1> : null }
           {(this.props.showUserLoginForm || this.props.showRegistrationForm) ? null : 
@@ -56,11 +74,11 @@ class Form extends React.Component {
             
             <div className="modal-footer">
 
-              {this.props.showRegistrationForm ? null : <input onClick={this.props.handleRegistrationClick} type="submit" value="Register" className="landing-buttons btn btn-outline-secondary" /> }
+              {this.props.showRegistrationForm || this.props.showUserLoginForm ? null : <input onClick={this.props.handleRegistrationClick} type="submit" value="Register" className="landing-buttons btn btn-outline-secondary" /> }
               
               {this.props.showRegistrationForm ? <Registration /> : null}
 
-              {this.props.showUserLoginForm ? null : <input onClick={this.props.handleClick} type="submit" value="Login" className="landing-buttons btn btn-outline-secondary" /> }
+              {this.props.showUserLoginForm || this.props.showRegistrationForm ? null : <input onClick={this.props.handleClick} type="submit" value="Login" className="landing-buttons btn btn-outline-secondary" /> }
               
               {this.props.showUserLoginForm ? <UserLogin /> : null }
 
