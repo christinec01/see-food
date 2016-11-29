@@ -2,7 +2,7 @@
 // all your dumb component names with Widget.
 
 import React, { PropTypes } from 'react';
-
+import RestaurantsModal from './RestaurantsModal';
 // Simple example of a React "dumb" component
 export default class Main extends React.Component {
   // React will automatically provide us with the event `e`
@@ -12,19 +12,27 @@ export default class Main extends React.Component {
       currentRestaurantIndex: 0,
       likedSpots: [],
       showLikes: false,
-      showRestaurants: false,
+      showRestaurantsModal: false,
+      restaurantIndex: 0
     };
   }
 
   handleClick = (e) => {
-    this.setState({showRestaurants: true});
+    this.setState({showRestaurantsModal: true});
   }
 
-  toggleRestaurants = () => {
+  showRestaurantsModal = (e) => {
     this.setState({
-      showRestaurants: !this.state.showRestaurants,
+      showRestaurantsModal: true,
+      restaurantIndex: e.target.dataset.index
     })
   }
+
+  hideRestaurantsModal = () => {
+    this.setState({
+      showRestaurantsModal: false,
+    })
+    }
 
   handleChange(e) {
     const name = e.target.value;
@@ -115,21 +123,20 @@ export default class Main extends React.Component {
             <button onClick={this.toggleLikes}>{this.state.showLikes ? 'Hide my likes' : 'Show my likes'}</button>
               {this.state.showLikes ?
                 <ul>
-                    {this.state.likedSpots.map((spot) => (
-                      // <button onClick={this.toggleRestaurants}>{spot.name}</button>
-                      //   {this.state.showRestaurants ?
-                      //     {this.state.likedSpots.map((spot) => (
-                      //       <li>{spot.name}</li>
-                      //       ))}
-                      //   }
-                      <li>{spot.name}</li>
+                    {this.state.likedSpots.map((spot, i) => (
+                      <li onClick={this.showRestaurantsModal} data-index={i}>{spot.name}</li>
                       ))}
                 </ul> : null
               }
             </div>
           </div>
+          <RestaurantsModal
+            open={this.state.showRestaurantsModal}
+            spot={this.state.likedSpots[this.state.restaurantIndex]}
+            handleOpen={this.showRestaurantsModal}
+            handleClose={this.hideRestaurantsModal}
+          />
       </div>
     );
   }
 }
-
