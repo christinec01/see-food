@@ -37,23 +37,23 @@ export default class Main extends React.Component {
 
   handleRating = (e) => {
     // save restaurant that was clicked to db
-    console.log(e.target.dataset.label)
+    
 
     if (e.target.dataset.label === 'like') {
       // make ajax request
-    fetch('/restaurants', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      name: e.target.dataset.name,
-      address: e.target.dataset.address,
-      phone_number: e.target.dataset.phone,
-      picture_url: e.target.dataset.picurl
-    })
-  })
+      fetch('/restaurants', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: e.target.dataset.name,
+          address: e.target.dataset.address,
+          phone_number: e.target.dataset.phone,
+          picture_url: e.target.dataset.picurl,
+        }),
+      });
       let spotToSave = this.props.spots[this.state.currentRestaurantIndex];
 
       this.setState({
