@@ -21,9 +21,24 @@ export default class Main extends React.Component {
   handleRating = (e) => {
     // save restaurant that was clicked to db
     console.log(e.target.dataset.label)
+
     if (e.target.dataset.label === 'like') {
       // make ajax request
+    fetch('/restaurants', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: e.target.dataset.name,
+      address: e.target.dataset.address,
+      phone_number: e.target.dataset.phone,
+      picture_url: e.target.dataset.picurl
+    })
+  })
       let spotToSave = this.props.spots[this.state.currentRestaurantIndex];
+
       this.setState({
         likedSpots: this.state.likedSpots.concat(spotToSave),
       });
@@ -38,7 +53,7 @@ export default class Main extends React.Component {
   }
   nextSlide = () => {
     if (this.state.currentRestaurantIndex === this.props.spots.length) {
-      console.log("here in the method")
+      // console.log("here in the method")
       this.setState({
         currentRestaurantIndex: 0,
       });
@@ -50,7 +65,7 @@ export default class Main extends React.Component {
   }
   render() {
     // this.state.currentRestaurantIndex
-    console.log(this.state.currentRestaurantIndex)
+    // console.log(this.state.currentRestaurantIndex)
     let {currentRestaurantIndex} = this.state;
     let {spots} = this.props;
     let spot = spots[currentRestaurantIndex];
@@ -61,7 +76,7 @@ export default class Main extends React.Component {
               <button
                 style={{marginTop: '200 auto'}}
                 type="button"
-                className="btn btn-lg btn-warning no-thanks"
+                className="btn btn-lg btn-warning no-thanks pic-button"
                 data-label="dislike"
                 onClick={this.handleRating}>
                 NO THANKS
@@ -75,7 +90,11 @@ export default class Main extends React.Component {
                 style={{cursor: 'pointer', zIndex: 99, marginTop: '200 auto'}}
                 type="button"
                 data-label="like"
-                className="btn btn-lg btn-danger like"
+                data-name={spot.name}
+                data-address={spot.location.display_address[0] + " " + spot.location.display_address[1]}
+                data-phone={spot.phone}
+                data-picurl={spot.url}
+                className="btn btn-lg btn-danger like pic-button"
                 onClick={this.handleRating}>
                 LIKE
               </button>
