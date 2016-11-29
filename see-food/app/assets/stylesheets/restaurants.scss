@@ -72,6 +72,19 @@ h1 {
   color: #ffffff;
 }
 
+.index-pic{
+  margin: 5%;
+}
+
+.btn-warning{
+  margin-bottom: -100%;
+  margin-left: -50%;
+}
+
+.btn-danger{
+  margin-left: 130%;
+  margin-bottom: -100%;
+}
 
 img {
   max-width: 100%;
@@ -83,10 +96,14 @@ img {
 }
 
 .zip-form {
-    margin-bottom: 2%;
+  margin-bottom: 2%;
+}
 
+.ta-right {
+  text-align: right;
 }
 
 .pic-button {
   margin-top: 100%;
 }
+

@@ -86,7 +86,7 @@ export default class Main extends React.Component {
           <div className="row" style={{marginTop: '20%'}}>
             <div className="col-sm-2">
               <button
-                style={{cursor: 'pointer', zIndex: 99, marginTop: '200 auto'}}
+                style={{marginTop: '200 auto'}}
                 type="button"
                 className="btn btn-lg btn-warning no-thanks pic-button"
                 data-label="dislike"
