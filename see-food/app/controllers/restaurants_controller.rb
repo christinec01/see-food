@@ -20,14 +20,11 @@ class RestaurantsController < ApplicationController
       user_id: 1,
       restaurant_id: @restaurant.id
       )
-
   end
 
   private
-
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :phone_number, :picture_url)
   end
-
 
 end
