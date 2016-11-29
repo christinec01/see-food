@@ -54,7 +54,7 @@ class UserLogin extends React.Component {
 
 	onBlur = (e) => {
 		console.log(e.target.value)
-		console.log("MOVED OUT!")
+		console.log("JUST CHANGED FORM FIELDS!")
 	}
 
 	render() {
