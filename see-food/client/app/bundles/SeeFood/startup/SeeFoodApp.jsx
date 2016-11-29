@@ -1,7 +1,13 @@
 import React from 'react';
 import ReactOnRails from 'react-on-rails';
 import SeeFoodContainer from '../containers/SeeFoodContainer';
-import Restaurant from '../components/Restaurant';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
+
 // import Landing from './Landing';
 
 const SeeFoodApp = (props) => {
@@ -11,7 +17,9 @@ const SeeFoodApp = (props) => {
   });
 
   return (
-    <SeeFoodContainer {...props} spots={spots} />
+    <MuiThemeProvider>
+      <SeeFoodContainer {...props} spots={spots} />
+    </MuiThemeProvider>
   );
 }
 
