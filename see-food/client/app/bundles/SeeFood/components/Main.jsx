@@ -13,7 +13,8 @@ export default class Main extends React.Component {
       likedSpots: [],
       showLikes: false,
       showRestaurantsModal: false,
-      restaurantIndex: 0
+      restaurantIndex: 0,
+      spots: this.props,
     };
   }
 
@@ -34,10 +35,6 @@ export default class Main extends React.Component {
     })
     }
 
-  handleChange(e) {
-    const name = e.target.value;
-    this.props.updateName(name);
-  }
   handleRating = (e) => {
     // save restaurant that was clicked to db
     console.log(e.target.dataset.label)
@@ -61,6 +58,13 @@ export default class Main extends React.Component {
 
       this.setState({
         likedSpots: this.state.likedSpots.concat(spotToSave),
+      });
+    }
+    else if (e.target.dataset.label === 'dislike') {
+      let spotToRemove = this.props.spots[this.state.currentRestaurantIndex];
+
+      this.setState({
+        spots: this.props.spots.splice([this.state.currentRestaurantIndex], 1),
       });
     }
     // console.log('click', this.props.spots.length);
