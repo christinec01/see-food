@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+
   include RestaurantsHelper
 
   def index

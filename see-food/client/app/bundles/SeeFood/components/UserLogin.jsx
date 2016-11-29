@@ -19,15 +19,28 @@ class UserLogin extends React.Component {
 			password: this.password.value,
 		}
 		
-		this.sessionForm.reset();
+		// this.sessionForm.reset();
 	}
 
 	handleChange = (e) => {
-		this.setState({ formData: {[e.target.name]: e.target.value}})
-	}
+		// this.setState(Object.assign(this.state, { formData: {email: e.target.value, password: e.target.value}}))
+		// console.log(e.target.value)
+		const formData = this.state.formData;
+		formData[e.target.name] = e.target.value;
+		this.setState({formData: formData });
+
+
+	   //  handleChange: function (propertyName, event) {
+    //   const contact = this.state.contact;
+    //   contact[propertyName] = event.target.value;
+    //   this.setState({contact: contact });
+
+    }
 
 	handleSubmit = (e) => {
-		fetch('sessions/login', {
+		e.preventDefault()
+		 
+		fetch('/login', {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
@@ -35,18 +48,18 @@ class UserLogin extends React.Component {
 			},
 			body: JSON.stringify({
 				email: this.state.formData.email,
-				password: this.state.formData.password,
+				password: this.state.formData.password
 			})
 		})
 	}
 
 	render() {
-		
+		// console.log(this.state)
 		return (
 			<form onSubmit={this.handleSubmit} className="session-edit">
-			<input name="email" onChange={this.handleChange} type="email" placeholder="Email"/>
-			<input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
-			<button className="landing-buttons" type="submit"> Login </button>
+				<input name="email" onChange={this.handleChange} type="email" placeholder="Email"/>
+				<input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
+				<button className="landing-buttons" type="submit"> Login </button>
 			</form>
 			)
 	}

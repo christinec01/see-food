@@ -4,14 +4,17 @@ class SessionsController < ApplicationController
      
   end
 
-  def login
-    p sessions.inspect
-    p params.inspect
+  def create
+    # p "*" * 40
+    # p params[:email]
+    # p "*" * 40
+    # p params[:password]
+    # p "*" * 40
     user = User.find_by_email(params[:email])
-    p sessions.inspect
-    if request.xhr? && user && user.authenticate(params[:password])
-    p sessions.inspect
+    if request.xhr? && (user && user.authenticate(params[:password]))
         session[:user_id] = user.id
+        p "*" * 40
+        redirect_to restaurants_path
         # respond_to do |format|
         #   format.html { redirect_to '/'}
     else
@@ -27,5 +30,11 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to '/'
   end
+
+  private
+
+  # def user_params
+  #   params.require(params).permit(:email, :password)
+  # end 
 
 end
