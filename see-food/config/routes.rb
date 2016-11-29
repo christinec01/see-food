@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :landings
+  resources :landings, :only => [:index, :create]
   resources :restaurants
   resources :users
 
-  resources :sessions
+  # resources :sessions
 
     # Session Routes
   get '/login' => 'sessions#new'
