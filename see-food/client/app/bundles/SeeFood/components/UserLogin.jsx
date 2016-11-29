@@ -11,7 +11,7 @@ class UserLogin extends React.Component {
 			},
 			showModal: false,
 		}
-		this.authenticity_toke
+		// this.authenticity_toke
 	}
 
 	createSession = (event) => {
