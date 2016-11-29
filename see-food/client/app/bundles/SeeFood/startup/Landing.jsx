@@ -4,8 +4,9 @@ import LandingPage from '../components/LandingPage';
 import Registration from '../components/Registration';
 import UserLogin from '../components/UserLogin';
 
-const Landing = () => ( 
+const Landing = (props) => ( 
   	<LandingPage />
+  	
 );
 
 ReactOnRails.register({ Landing });

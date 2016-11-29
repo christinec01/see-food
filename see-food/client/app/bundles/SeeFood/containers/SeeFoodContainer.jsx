@@ -8,7 +8,9 @@ export default class SeeFoodApp extends React.Component {
   }
   render() {
     return (
+
       <div>
+
         <Main spots={this.props.spots} url={this.props.url} />
       </div>
     );

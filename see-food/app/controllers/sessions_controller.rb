@@ -5,20 +5,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # p "*" * 40
-    # p params[:email]
-    # p "*" * 40
-    # p params[:password]
-    # p "*" * 40
-    user = User.find_by_email(params[:email])
-    if request.xhr? && (user && user.authenticate(params[:password]))
-        session[:user_id] = user.id
+    if !params[:email] || !params[:password]
+      render json: {errors: ["Need params"]}, status: 400
+      return
+    end
         p "*" * 40
+
+    user = User.find_by_email(params[:email])
+
+    if (user && user.authenticate(params[:password]))
+        session[:user_id] = user.id
+        p "0" * 40
         redirect_to restaurants_path
-        # respond_to do |format|
-        #   format.html { redirect_to '/'}
     else
-      redirect_to '/'
+      render json: {errors: ["Email or Password is not correct"]}, status: 400
     end
   end
 

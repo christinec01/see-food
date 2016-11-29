@@ -11,6 +11,7 @@ class UserLogin extends React.Component {
 			},
 			showModal: false,
 		}
+		this.authenticity_toke
 	}
 
 	createSession = (event) => {
@@ -38,8 +39,6 @@ class UserLogin extends React.Component {
     }
 
 	handleSubmit = (e) => {
-		e.preventDefault()
-		 
 		fetch('/login', {
 			method: 'POST',
 			headers: {
@@ -57,6 +56,7 @@ class UserLogin extends React.Component {
 		// console.log(this.state)
 		return (
 			<form onSubmit={this.handleSubmit} className="session-edit">
+				
 				<input name="email" onChange={this.handleChange} type="email" placeholder="Email"/>
 				<input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
 				<button className="landing-buttons" type="submit"> Login </button>
