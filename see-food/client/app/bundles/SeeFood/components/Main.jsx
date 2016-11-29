@@ -12,8 +12,20 @@ export default class Main extends React.Component {
       currentRestaurantIndex: 0,
       likedSpots: [],
       showLikes: false,
+      showRestaurants: false,
     };
   }
+
+  handleClick = (e) => {
+    this.setState({showRestaurants: true});
+  }
+
+  toggleRestaurants = () => {
+    this.setState({
+      showRestaurants: !this.state.showRestaurants,
+    })
+  }
+
   handleChange(e) {
     const name = e.target.value;
     this.props.updateName(name);
@@ -103,15 +115,21 @@ export default class Main extends React.Component {
             <button onClick={this.toggleLikes}>{this.state.showLikes ? 'Hide my likes' : 'Show my likes'}</button>
               {this.state.showLikes ?
                 <ul>
-                  {this.state.likedSpots.map((spot) => (
-                    <li> {spot.name} </li>
-                  ))}
+                    {this.state.likedSpots.map((spot) => (
+                      // <button onClick={this.toggleRestaurants}>{spot.name}</button>
+                      //   {this.state.showRestaurants ?
+                      //     {this.state.likedSpots.map((spot) => (
+                      //       <li>{spot.name}</li>
+                      //       ))}
+                      //   }
+                      <li>{spot.name}</li>
+                      ))}
                 </ul> : null
               }
-
             </div>
           </div>
       </div>
     );
   }
 }
+

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactOnRails from 'react-on-rails';
 import SeeFoodContainer from '../containers/SeeFoodContainer';
+import Restaurant from '../components/Restaurant';
 // import Landing from './Landing';
 
 const SeeFoodApp = (props) => {
