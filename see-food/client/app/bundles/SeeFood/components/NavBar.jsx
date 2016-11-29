@@ -12,27 +12,19 @@ export default class NavBar extends React.Component {
         <nav className="navbar navbar-default">
           <div className="col-md-6">
             <div className="container-fluid">
-              <a className="navbar-brand" href="/landings">See Food</a>
-              <form className="zip-form" action="/landings" method="POST">
+              <a className="navbar-brand nav-font-size" href="/landings">See Food</a>
+              <form className="zip-form nav-font-size" action="/landings" method="POST">
                 <input type="text" name="zip" placeholder="Enter zip code" />
-                <input className="btn btn-primary btn-sm" type="submit" value="Submit" />
-              </form> 
+                <input className="btn btn-primary btn-lg" type="submit" value="Submit" />
+              </form>
             </div>
           </div>
-          <div className="col-md-6 ta-right">
+
+          <div className="col-md-6 ta-right nav-font-size">
             <span><a href="#">My Likes</a> | <a href="/logout">Logout</a></span> 
-            }
           </div>
         </nav>
       </div>
     );
   }
 }
-
-
-
-
-
-
-
-

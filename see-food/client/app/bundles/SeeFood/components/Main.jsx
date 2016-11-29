@@ -13,7 +13,8 @@ export default class Main extends React.Component {
       likedSpots: [],
       showLikes: false,
       showRestaurantsModal: false,
-      restaurantIndex: 0
+      restaurantIndex: 0,
+      spots: this.props,
     };
   }
 
@@ -34,33 +35,36 @@ export default class Main extends React.Component {
     })
     }
 
-  handleChange(e) {
-    const name = e.target.value;
-    this.props.updateName(name);
-  }
   handleRating = (e) => {
     // save restaurant that was clicked to db
-    console.log(e.target.dataset.label)
+    
 
     if (e.target.dataset.label === 'like') {
       // make ajax request
-    fetch('/restaurants', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      name: e.target.dataset.name,
-      address: e.target.dataset.address,
-      phone_number: e.target.dataset.phone,
-      picture_url: e.target.dataset.picurl
-    })
-  })
+      fetch('/restaurants', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: e.target.dataset.name,
+          address: e.target.dataset.address,
+          phone_number: e.target.dataset.phone,
+          picture_url: e.target.dataset.picurl,
+        }),
+      });
       let spotToSave = this.props.spots[this.state.currentRestaurantIndex];
 
       this.setState({
         likedSpots: this.state.likedSpots.concat(spotToSave),
+      });
+    }
+    else if (e.target.dataset.label === 'dislike') {
+      let spotToRemove = this.props.spots[this.state.currentRestaurantIndex];
+
+      this.setState({
+        spots: this.props.spots.splice([this.state.currentRestaurantIndex], 1),
       });
     }
     // console.log('click', this.props.spots.length);
