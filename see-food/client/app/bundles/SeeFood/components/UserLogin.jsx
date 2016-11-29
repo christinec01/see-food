@@ -52,12 +52,18 @@ class UserLogin extends React.Component {
 		})
 	}
 
+	onBlur = (e) => {
+		console.log(e.target.value)
+		console.log("MOVED OUT!")
+	}
+
 	render() {
 		// console.log(this.state)
+
 		return (
-			<form onSubmit={this.handleSubmit} className="session-edit">
+			<form className="session-edit" action="/login" method="POST">
 				
-				<input name="email" onChange={this.handleChange} type="email" placeholder="Email"/>
+				<input name="email" onBlur={this.onBlur} onChange={this.handleChange} type="email" placeholder="Email"/>
 				<input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
 				<button className="landing-buttons" type="submit"> Login </button>
 			</form>

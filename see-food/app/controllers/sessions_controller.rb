@@ -11,12 +11,12 @@ class SessionsController < ApplicationController
     end
         p "*" * 40
 
-    user = User.find_by_email(params[:email])
+    @user = User.find_by_email(params[:email])
 
-    if (user && user.authenticate(params[:password]))
-        session[:user_id] = user.id
+    if (@user && @user.authenticate(params[:password]))
+        session[:user_id] = @user.id
         p "0" * 40
-        redirect_to restaurants_path
+        redirect_to restaurants_path(@user.zip_code)
     else
       render json: {errors: ["Email or Password is not correct"]}, status: 400
     end

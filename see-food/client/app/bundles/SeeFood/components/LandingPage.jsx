@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Registration from '../components/Registration';
 import UserLogin from './UserLogin';
 
-
 // Simple example of a React "dumb" component
 export default class LandingPage extends React.Component {
   // React will automatically provide us with the event `e`
@@ -38,6 +37,25 @@ export default class LandingPage extends React.Component {
     );
   }
 }
+
+/*
+  bla bla Form render() return (
+    <form className="" onSubmit={this.props.onSubmit}>
+      {...this.children}
+    </form>
+  )
+
+  bla bal OtherComponent render() return {
+    <Form onSubmit={somFucntion}>
+      <input name="first_name">
+    </Form>
+
+    <label>
+      <input />
+    </label>
+
+  }
+*/
 
 class Form extends React.Component {
   render() {
