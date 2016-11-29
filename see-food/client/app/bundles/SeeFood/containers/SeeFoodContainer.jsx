@@ -11,11 +11,10 @@ export default class SeeFoodApp extends React.Component {
     return (
 
       <div>
-<<<<<<< HEAD
-        <NavBar />
-=======
 
->>>>>>> reg-fix
+        <NavBar />
+
+
         <Main spots={this.props.spots} url={this.props.url} />
       </div>
     );
