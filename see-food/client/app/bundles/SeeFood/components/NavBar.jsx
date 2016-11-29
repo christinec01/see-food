@@ -4,13 +4,7 @@ export default class NavBar extends React.Component {
   // handleChange(e) {
   //   const name = e.target.value;
   //   this.props.updateName(name);
-  // }
-  logout = (e) => {
-    fetch('/sessions', {
-      method: 'POST',
 
-    })
-  }
 
   render() {
     return (
@@ -26,7 +20,8 @@ export default class NavBar extends React.Component {
             </div>
           </div>
           <div className="col-md-6 ta-right">
-            <span><a href="#">My Settings</a> | <a onClick={this.logout} href="#">Logout</a></span> 
+            <span><a href="#">My Likes</a> | <a href="/logout">Logout</a></span> 
+            }
           </div>
         </nav>
       </div>
