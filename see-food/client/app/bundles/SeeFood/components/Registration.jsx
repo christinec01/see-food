@@ -20,18 +20,15 @@ export default class Registration extends React.Component {
 
   render() {
     return (
-      <form action="/users" method="POST">
-        <input type="text" name="user[first_name]" placeholder="First Name" />
-        <input type="text" name="user[last_name]" placeholder="Last Name" />
-        <input type="text" name="user[username]" placeholder="Username" />
-        <input type="email" name="user[email]" placeholder="Email" />
-        <input type="password" name="user[password]" placeholder="Password" />
-        <input type="text" name="user[zip_code]" placeholder="Zip Code" />
-        <input type="submit" value="Register" />
+      <form action="/users" method="POST" className="form-group form-validations">
+        <input type="text" name="user[first_name]" placeholder="First Name" className="form-control"/>
+        <input type="text" name="user[last_name]" placeholder="Last Name" className="form-control"/>
+        <input type="text" name="user[username]" placeholder="Username" className="form-control" />
+        <input type="email" name="user[email]" placeholder="Email" className="form-control" />
+        <input type="password" name="user[password]" placeholder="Password" className="form-control" />
+        <input type="text" name="user[zip_code]" placeholder="Zip Code" className="form-control" />
+        <input type="submit" value="Register" className="btn btn-primary" />
       </form>
     );
   }
 }
-
-
-
