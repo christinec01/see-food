@@ -12,7 +12,7 @@ export default class UserLikesIndex extends React.Component {
   	console.log(this.props)
     return (
 
-      <div>
+      <div class="container">
         <NavBar user={this.props.user}/>
 				<UserLikesBanner user={this.props.user}/>
         <UserLikesFoodGrid restaurants={this.props.restaurants}/>

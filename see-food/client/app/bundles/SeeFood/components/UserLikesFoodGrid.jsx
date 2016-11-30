@@ -7,20 +7,29 @@ class UserLikesFoodGrid extends React.Component {
 		let thumbs = this.props.restaurants.map((restaurant, idx) => {
 			// console.log(restaurant)
 			return (
-				<div className="col-xs-6 col-md-3" key={idx}>
-					<h2>{restaurant.name}</h2>
-					<a href="#" className="thumbnail">
-						<img src={restaurant.picture_url}/>
-					</a>
+				<div className="col-sm-6 col-md-6" >
+					<div className="card" key={idx} >
+      			<img className="card-img-top" src={restaurant.picture_url}/>
+      				<div className="card-block">
+        				<h3 className="card-title">{restaurant.name}</h3>
+        				<p className="card-text">
+								{restaurant.name}<br/>
+								{restaurant.address}<br/>
+								{"Phone: "+ restaurant.phone_number}
+        				</p>
+							</div>
+					</div>
 				</div>
 			)
 		})
 		
 		// console.log(thumbs)
 		return (
-			<div className="row container">
+			<div className="row">
+				
 				{thumbs}
-			</div>
+				</div>
+			
 		)
 	}
 }
