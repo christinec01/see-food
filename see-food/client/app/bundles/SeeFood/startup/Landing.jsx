@@ -4,6 +4,7 @@ import LandingPage from '../components/LandingPage';
 
 
 const Landing = (props) => ( 
+  	
   	<LandingPage />
   	
 );

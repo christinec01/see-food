@@ -7,6 +7,7 @@ export default class NavBar extends React.Component {
 
 
   render() {
+
     return (
       <div className="row">
         <nav className="navbar navbar-default">
@@ -21,7 +22,7 @@ export default class NavBar extends React.Component {
           </div>
 
           <div className="col-md-6 ta-right nav-font-size">
-            <span><a href="#">My Likes</a> | <a href="/logout">Logout</a></span> 
+            <span><a href={"/users/" + this.props.user.id + "/likes"}>My Likes</a> | <a href="/logout">Logout</a></span> 
           </div>
         </nav>
       </div>

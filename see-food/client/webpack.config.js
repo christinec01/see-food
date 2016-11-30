@@ -13,6 +13,7 @@ const config = {
     'babel-polyfill',
     './app/bundles/SeeFood/startup/SeeFoodApp',
     './app/bundles/SeeFood/startup/Landing',
+    './app/bundles/SeeFood/startup/UserLikesIndex',
   ].concat(glob.sync("./app/bundles/**/startup/*")),
 
   output: {
