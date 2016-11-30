@@ -10,18 +10,11 @@ class RestaurantsController < ApplicationController
       @restaurants = search_by_zip(params[:format])
     end
 
-    @spots = @restaurants.businesses
+    businesses = @restaurants.businesses.shuffle
 
-    @url = []
+    @spots = businesses.find_all { |spot| image_filter(search_image(spot.image_url)) }
 
-    @spots.each do |spot|
-      if image_filter(search_image(spot.image_url))
-        @url << enlarge_image(spot.image_url)
-      end
-    end
-
-    # @url = @spots.map { |spot| enlarge_image(spot.image_url) }
-
+    @url = @spots.map { |spot| enlarge_image(spot.image_url) }
   end
 
   def create
@@ -39,5 +32,4 @@ class RestaurantsController < ApplicationController
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :phone_number, :picture_url)
   end
-
 end
