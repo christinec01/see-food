@@ -225,6 +225,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   dotenv-rails
   google_places
+  httparty
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
