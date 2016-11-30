@@ -216,6 +216,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionmailer (~> 5.0, >= 5.0.0.1)
   awesome_print
   bcrypt
   binding_of_caller

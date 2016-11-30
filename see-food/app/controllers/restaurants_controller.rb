@@ -25,11 +25,11 @@ class RestaurantsController < ApplicationController
       )
   end
 
-  def sendEmail
-    debug
-    p params
-    debug
-  end
+def sendEmail
+  debug
+  p params
+  debut
+end
 
   private
   def restaurant_params
