@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @likes = @user.likes
   end
 
   def new
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to restaurants_path(@user.zip_code)
+      redirect_to restaurants_path(@user)
     end
   end
 
@@ -21,5 +22,5 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :first_name, :last_name, :password, :email, :zip_code)
-  end 
+  end
 end

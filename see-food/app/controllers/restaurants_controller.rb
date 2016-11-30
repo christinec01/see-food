@@ -3,19 +3,21 @@ class RestaurantsController < ApplicationController
   include RestaurantsHelper
 
   def index
-    @restaurants = search_by_zip(params[:format])
+    if User.where(id: params[:format]).length > 0
+      @user = User.find(params[:format])
+      @restaurants = search_by_zip(@user.zip_code)
+    else
+      @restaurants = search_by_zip(params[:format])
+    end
+
     @spots = @restaurants.businesses.select { |spot| spot.is_closed == false }
     @url = @spots.map { |spot| enlarge_image(spot.image_url) }
   end
 
   def create
     # expecting a spot from front end
-    p "*"* 50
-    p params
-    p "*"* 50
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.save
-    p @restaurant
 
     @like = Like.create(
       user_id: 1,
