@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :landings, :only => [:index, :create]
   resources :restaurants
-  resources :users
+  resources :users do
+    resources :likes, :only => [:index, :destroy]
+  end
 
   # resources :sessions
 
