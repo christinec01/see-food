@@ -3,12 +3,13 @@ class RestaurantsController < ApplicationController
   include RestaurantsHelper
 
   def index
-    if User.where(id: params[:format]).length > 0
-      @user = User.find(params[:format])
-      @restaurants = search_by_zip(@user.zip_code)
-    else
-      @restaurants = search_by_zip(params[:format])
-    end
+      
+      if User.where(id: params[:format]).length > 0
+        @user = User.find(params[:format])
+        @restaurants = search_by_zip(@user.zip_code)
+      else
+        @restaurants = search_by_zip(params[:format])
+      end
 
     @spots = @restaurants.businesses.select { |spot| spot.is_closed == false }
     @url = @spots.map { |spot| enlarge_image(spot.image_url) }
