@@ -60,5 +60,6 @@ gem 'google_places'
 gem 'dotenv-rails'
 gem 'bcrypt'
 gem 'yelp'
+gem 'httparty'
 
 gem 'mini_racer', platforms: :ruby

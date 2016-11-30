@@ -11,7 +11,10 @@ class RestaurantsController < ApplicationController
         @restaurants = search_by_zip(params[:format])
       end
 
-    @spots = @restaurants.businesses.select { |spot| spot.is_closed == false }
+    businesses = @restaurants.businesses.shuffle
+
+    @spots = businesses.find_all { |spot| image_filter(search_image(spot.image_url)) }
+
     @url = @spots.map { |spot| enlarge_image(spot.image_url) }
   end
 
@@ -30,5 +33,4 @@ class RestaurantsController < ApplicationController
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :phone_number, :picture_url)
   end
-
 end
