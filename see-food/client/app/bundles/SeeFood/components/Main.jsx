@@ -15,6 +15,8 @@ export default class Main extends React.Component {
       showRestaurantsModal: false,
       restaurantIndex: 0,
       spots: this.props,
+      sendEmail: false,
+      enterEmail: '',
     };
   }
 
@@ -33,11 +35,11 @@ export default class Main extends React.Component {
     this.setState({
       showRestaurantsModal: false,
     })
-    }
+  }
 
   handleRating = (e) => {
     // save restaurant that was clicked to db
-    
+
 
     if (e.target.dataset.label === 'like') {
       // make ajax request
@@ -69,6 +71,37 @@ export default class Main extends React.Component {
     }
     // console.log('click', this.props.spots.length);
     this.nextSlide();
+  }
+  // sendEmail() {
+  //   const email = {
+  //     email: this.email.value,
+  //   };
+  // }
+  handleEmailChange = (e) => {
+    const name = e.target.value;
+    console.log(name)
+    this.setState({
+      enterEmail: name,
+    });
+  }
+
+// }
+  handleChange = (e) => {
+    if (e.target.dataset.email) {
+      fetch('/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          enterEmail: e.target.nextElementSibling.name,
+          // enterEmail: e.target.dataset.name,
+          likedSpots: this.state.likedSpots,
+        }),
+      }
+);
+    }
   }
   toggleLikes = () => {
     this.setState({
@@ -106,7 +139,7 @@ export default class Main extends React.Component {
                 NO THANKS
               </button>
             </div>
-            <div className="col-sm-6">
+            <div className="col-sm-4">
               <img className="index-pic" src={spot.url} alt=""/>
             </div>
             <div className="col-sm-2">
@@ -123,8 +156,10 @@ export default class Main extends React.Component {
                 LIKE
               </button>
             </div>
-            <div className="col-sm-2">
-            <button onClick={this.toggleLikes}>{this.state.showLikes ? 'Hide my likes' : 'Show my likes'}</button>
+          <div className="col-sm-2">
+            <button
+              onClick={this.toggleLikes}>{this.state.showLikes ? 'Hide my likes' : 'Show my likes'}
+              </button>
               {this.state.showLikes ?
                 <ul>
                     {this.state.likedSpots.map((spot, i) => (
@@ -132,6 +167,16 @@ export default class Main extends React.Component {
                       ))}
                 </ul> : null
               }
+              <div className="col-sm-2">
+              <button
+              style={{cursor: 'pointer', zIndex: 99, marginTop: '200 auto'}}
+              data-email="email"
+              data-name="enterEmail"
+              className="btn btn-sm btn-warning"
+              onClick={this.handleChange}>Send my likes to a friend!
+              </button>
+              <input type="text" onChange={this.handleEmailChange} name={this.state.enterEmail} />
+              </div>
             </div>
           </div>
           <RestaurantsModal
