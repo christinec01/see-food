@@ -10,8 +10,18 @@ class RestaurantsController < ApplicationController
       @restaurants = search_by_zip(params[:format])
     end
 
-    @spots = @restaurants.businesses.select { |spot| spot.is_closed == false }
-    @url = @spots.map { |spot| enlarge_image(spot.image_url) }
+    @spots = @restaurants.businesses
+
+    @url = []
+
+    @spots.each do |spot|
+      if image_filter(search_image(spot.image_url))
+        @url << enlarge_image(spot.image_url)
+      end
+    end
+
+    # @url = @spots.map { |spot| enlarge_image(spot.image_url) }
+
   end
 
   def create
