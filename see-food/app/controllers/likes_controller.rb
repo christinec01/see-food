@@ -3,10 +3,7 @@ class LikesController < ApplicationController
 
   def index
   	@user = User.find(params[:user_id])
-
-  	debug
 		@restaurants = @user.likes.map {|like| like.restaurant }
-  	debug
   end
 
   def destroy
