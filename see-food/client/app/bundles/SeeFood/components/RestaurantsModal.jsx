@@ -42,10 +42,18 @@ export default class RestaurantsModal extends React.Component {
           >
             {spot ?
               <div>
-                <iframe width="600" height="450" frameBorder="0" src={"https://www.google.com/maps/embed/v1/place?key=" + map_key + "&q=" + encodeURI(spot.location.display_address[0]) + encodeURI(spot.location.display_address[1])}></iframe>
-                <p>{spot.name}</p>
-                <p>{spot.location.display_address[0] + " " + spot.location.display_address[1]}</p>
-                <p>{spot.phone}</p>
+                <div className="row" id="restaurant-info">
+                  <div className="col-md-6" id="location-address">
+                    <div className="single-space">
+                      <p>{spot.location.display_address[0]}</p>
+                      <p>{spot.location.display_address[1]}</p>
+                    </div>
+                    <p>{spot.phone}</p>
+                  </div>
+                  <div className="col-md-6 pull-right" id="map-pic">
+                    <iframe width="350" height="150" frameBorder="0" src={"https://www.google.com/maps/embed/v1/place?key=" + map_key + "&q=" + encodeURI(spot.location.display_address[0]) + encodeURI(spot.location.display_address[1])}></iframe>
+                  </div>
+                </div>
                 <img src={spot.url} alt=""/>
               </div>
               : null}
