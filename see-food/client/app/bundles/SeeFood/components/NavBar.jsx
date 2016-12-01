@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import UserLoggedInFeature from './UserLoggedInFeature';
 
 export default class NavBar extends React.Component {
   // handleChange(e) {
@@ -19,10 +20,6 @@ export default class NavBar extends React.Component {
                 <input className="btn btn-primary btn-lg" type="submit" value="Submit" />
               </form>
             </div>
-          </div>
-
-          <div className="col-md-6 ta-right nav-font-size">
-            <span><a href={"/users/" + this.props.user.id + "/likes"}>My Likes</a> | <a href="/logout">Logout</a></span> 
           </div>
         </nav>
       </div>
