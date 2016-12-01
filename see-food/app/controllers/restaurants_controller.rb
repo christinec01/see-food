@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   include RestaurantsHelper
 
   def index
-      
+
       if User.where(id: params[:format]).length > 0
         @user = User.find(params[:format])
         @restaurants = search_by_zip(@user.zip_code)
@@ -29,11 +29,12 @@ class RestaurantsController < ApplicationController
       )
   end
 
-def sendEmail
-  debug
-  p params
-  debut
-end
+  def sendEmail
+      p params[:likedSpots]
+    ExampleMailer.sample_email(params).deliver_now
+    render json: params
+
+  end
 
   private
   def restaurant_params
