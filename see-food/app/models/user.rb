@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :likes
+  has_many :restaurants, through: :likes
 
   validates :first_name, :last_name, :username, :email, :zip_code, presence: true
   validates :username, :email, uniqueness: true
