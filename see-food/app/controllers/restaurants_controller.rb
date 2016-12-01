@@ -3,7 +3,8 @@ class RestaurantsController < ApplicationController
   include RestaurantsHelper
 
   def index
-      
+    @map_key = ENV['MAP_KEY']
+
       if User.where(id: params[:format]).length > 0
         @user = User.find(params[:format])
         @restaurants = search_by_zip(@user.zip_code)
