@@ -135,6 +135,7 @@ export default class Main extends React.Component {
             </div>
           </div>
           <RestaurantsModal
+            map_key={this.props.map_key}
             open={this.state.showRestaurantsModal}
             spot={this.state.likedSpots[this.state.restaurantIndex]}
             handleOpen={this.showRestaurantsModal}

@@ -15,7 +15,7 @@ export default class SeeFoodApp extends React.Component {
         <NavBar user={this.props.user}/>
 
 
-        <Main spots={this.props.spots} url={this.props.url} />
+        <Main spots={this.props.spots} url={this.props.url} map_key={this.props.map_key}/>
       </div>
     );
   }
