@@ -30,11 +30,12 @@ class RestaurantsController < ApplicationController
       )
   end
 
-def sendEmail
-  debug
-  p params
-  debut
-end
+  def sendEmail
+      p params[:likedSpots]
+    ExampleMailer.sample_email(params).deliver_now
+    render json: params
+
+  end
 
   private
   def restaurant_params
