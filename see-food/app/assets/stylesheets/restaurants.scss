@@ -15,6 +15,7 @@
   width:100%;
  height:100%;
  opacity:0.7;
+ background-color:#fff;
 }
 
 @-webkit-keyframes scroll{
@@ -120,7 +121,7 @@ img {
     padding-bottom: 0;
   }
   .header p {
-    color: #fff;
+    color: #ff926b;
     padding-top: 15px;
   }
   .header .wrapper-inner {
@@ -142,7 +143,10 @@ img {
     border-color: #DB4A39;
   }
   .wrapper.secondary {
-    background: #f3f3f3;
+    background: #ff926b;
   }
-
-
+body{
+    background-color: #ff926b;
+    max-width: 100%;
+    width:100%;
+  }

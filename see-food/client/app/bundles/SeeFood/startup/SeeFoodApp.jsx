@@ -21,7 +21,7 @@ const SeeFoodApp = (props) => {
       <SeeFoodContainer {...props} spots={spots} />
     </MuiThemeProvider>
   );
-}
+};
 
 // This is how react_on_rails can see the SeeFoodApp in the browser.
 ReactOnRails.register({ SeeFoodApp });
