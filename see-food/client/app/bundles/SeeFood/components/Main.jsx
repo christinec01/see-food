@@ -127,6 +127,7 @@ export default class Main extends React.Component {
     let {spots} = this.props;
     let spot = spots[currentRestaurantIndex];
     return (
+      
       <div className="container">
           <div className="row" style={{marginTop: '20%'}}>
             <div className="col-sm-2">
