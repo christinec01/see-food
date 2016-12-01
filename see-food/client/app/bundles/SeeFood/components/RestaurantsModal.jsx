@@ -16,8 +16,8 @@ export default class RestaurantsModal extends React.Component {
   //   this.restaurantTable.reset();
   // }
   render() {
-    let {spot, handleClose, open} = this.props;
-
+    let {spot, handleClose, open, map_key} = this.props;
+    
     const actions = [
         <FlatButton
           label="Cancel"
@@ -42,6 +42,7 @@ export default class RestaurantsModal extends React.Component {
           >
             {spot ?
               <div>
+                <iframe width="600" height="450" frameBorder="0" src={"https://www.google.com/maps/embed/v1/place?key=" + map_key + "&q=" + encodeURI(spot.location.display_address[0]) + encodeURI(spot.location.display_address[1])}></iframe>
                 <p>{spot.name}</p>
                 <p>{spot.location.display_address[0] + " " + spot.location.display_address[1]}</p>
                 <p>{spot.phone}</p>
