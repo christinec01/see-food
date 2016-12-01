@@ -4,9 +4,30 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi%> </h1>
-    <p>
-      Sample mail sent using smtp.
-    </p>
+    <container>
+      <row>
+        <columns small="12">
+        <h1>Hi Friend, here are some of my favorite spots:</h1>
+        <% @liked_spots.each do |spot| %>
+        <img src="<%= spot["url"] %>">
+        <h2><%= spot["name"] %></h2>
+      </columns>
+    </row>
+
+    <wrapper class="secondary">
+
+      <spacer size="16"></spacer>
+
+      <row>
+        <columns large="6">
+        <h5>Location:</h5>
+        <p><%= spot["location"]["display_address"][0] %></p>
+        <p><%= spot["location"]["display_address"][1] %></p>
+      </columns>
+    </row>
+    </wrapper>
+    <% end %>
+
+    </container>
   </body>
 </html>
