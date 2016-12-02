@@ -149,7 +149,7 @@ export default class Main extends React.Component {
       </div>
 
           {spot ?
-            <div className="row">
+            <div>
             <div className="col-sm-2">
               <button
                 style={{marginTop: '200 auto'}}
@@ -180,7 +180,7 @@ export default class Main extends React.Component {
               </button>
             </div>
 
-          <div className="col-sm-2">
+          <div className="col-sm-2" style={{position: 'absolute', top: '100px', left: '1600px'}}>
             <div className="card hide-show-likes-card">
             <div className="card-block">
             <div className="card-title">
