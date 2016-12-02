@@ -169,14 +169,15 @@ export default class Main extends React.Component {
               </button>
             </div>
           <div className="col-sm-2">
-            <div className="card">
+            <div className="card hide-show-likes-card">
             <div className="card-block">
             <div className="card-title">
             <button
-            className="btn btn-sm"
+            className="btn btn-sm hide-show-likes-button"
               onClick={this.toggleLikes}>{this.state.showLikes ? 'Hide my likes' : 'Show my likes'}
               </button>
               </div>
+              <div className="card-text">
               {this.state.showLikes ?
                 <ul className="my-likes-list">
                     {this.state.likedSpots.map((spot, i) => (
@@ -184,6 +185,7 @@ export default class Main extends React.Component {
                       ))}
                 </ul> : null
               }
+              </div>
               </div>
               </div>
             </div>
