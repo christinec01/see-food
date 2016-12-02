@@ -20,17 +20,12 @@ export default class RestaurantsModal extends React.Component {
     
     const actions = [
         <FlatButton
-          label="Cancel"
+          label="X"
           primary={true}
-          onTouchTap={handleClose}
-        />,
-        <FlatButton
-          label="Submit"
-          primary={true}
-          keyboardFocused={true}
           onTouchTap={handleClose}
         />,
       ];
+
 
       return (
           <Dialog
@@ -41,6 +36,7 @@ export default class RestaurantsModal extends React.Component {
             onRequestClose={handleClose}
           >
             {spot ?
+
               <div>
                 <div className="row" id="restaurant-info">
                   <div className="col-md-6" id="location-address">
@@ -48,9 +44,9 @@ export default class RestaurantsModal extends React.Component {
                       <p>{spot.location.display_address[0]}</p>
                       <p>{spot.location.display_address[1]}</p>
                     </div>
-                    <p>{spot.phone}</p>
+                      <p>{(spot.phone).replace((/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/), "($1) $2-$3")}</p>
                   </div>
-                  <div className="col-md-6 pull-right" id="map-pic">
+                  <div className="col-md-6 pull-right">
                     <iframe width="350" height="150" frameBorder="0" src={"https://www.google.com/maps/embed/v1/place?key=" + map_key + "&q=" + encodeURI(spot.location.display_address[0]) + encodeURI(spot.location.display_address[1])}></iframe>
                   </div>
                 </div>
