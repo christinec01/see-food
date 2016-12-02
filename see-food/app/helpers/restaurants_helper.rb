@@ -35,4 +35,5 @@ module RestaurantsHelper
 
     category.include?("food")
   end
+
 end
