@@ -161,8 +161,9 @@ export default class Main extends React.Component {
               </button>
             </div>
             <div className="col-sm-6 col-md-6" >
-
-                <img className="card-img-top index-pic" src={spot.url}/>
+              <div className="hovereffect">
+                <img className="index-pic" src={spot.url}/>
+              </div>
 
             </div>
             <div className="col-sm-2">

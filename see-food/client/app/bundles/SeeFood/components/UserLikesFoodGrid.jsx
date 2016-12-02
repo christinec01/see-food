@@ -10,7 +10,7 @@ class UserLikesFoodGrid extends React.Component {
 				<div className="col-sm-6 col-md-6" >
 					<div className="card" key={idx} >
 					<div className="hovereffect">
-      				<img className="card-img-top img-responsive" src={restaurant.picture_url}/>
+      				<img className="card-img-top img-responsive img-likes" src={restaurant.picture_url}/>
       		</div>
       				<div className="card-block">
         				<h3 className="card-title">{restaurant.name}</h3>
