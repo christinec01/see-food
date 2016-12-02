@@ -127,8 +127,8 @@ export default class Main extends React.Component {
     let {spots} = this.props;
     let spot = spots[currentRestaurantIndex];
     return (
-      
-      <div className="container">
+
+      <div className="container .background-site" >
           <div className="row" style={{marginTop: '20%'}}>
             <div className="col-sm-2">
               <button
@@ -140,9 +140,13 @@ export default class Main extends React.Component {
                 NO THANKS
               </button>
             </div>
-            <div className="col-sm-4">
-              <img className="index-pic" src={spot.url} alt=""/>
-            </div>
+            <div className="col-sm-6 col-md-6" >
+                <img className="card-img-top index-pic" src={spot.url}/>
+                  <div className="card-block">
+
+
+                  </div>
+        				</div>
             <div className="col-sm-2">
               <button
                 style={{cursor: 'pointer', zIndex: 99, marginTop: '200 auto'}}
@@ -168,18 +172,20 @@ export default class Main extends React.Component {
                       ))}
                 </ul> : null
               }
-              <div className="col-sm-2">
-              <button
-              style={{cursor: 'pointer', zIndex: 99, marginTop: '200 auto'}}
-              data-email="email"
-              data-name="enterEmail"
-              className="btn btn-sm btn-warning"
-              onClick={this.handleChange}>Send my likes to a friend!
-              </button>
-              <input type="text" onChange={this.handleEmailChange} name={this.state.enterEmail} />
-              </div>
             </div>
-          </div>
+            </div>
+            <div className="row" style={{marginTop: '-20%'}}>
+            <div className="col-sm-2 email-btn">
+            <button
+            style={{cursor: 'pointer', zIndex: 99, marginTop: '200 auto'}}
+            data-email="email"
+            data-name="enterEmail"
+            className="btn btn-sm btn-warning email-btn"
+            onClick={this.handleChange}>Send my likes to a friend!
+            </button>
+            <input type="text" className="input-large search-query" onChange={this.handleEmailChange} name={this.state.enterEmail} />
+            </div>
+            </div>
           <RestaurantsModal
             map_key={this.props.map_key}
             open={this.state.showRestaurantsModal}

@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import UserLoggedInFeature from './UserLoggedInFeature';
 
 export default class NavBar extends React.Component {
   // handleChange(e) {
@@ -20,10 +21,7 @@ export default class NavBar extends React.Component {
               </form>
             </div>
           </div>
-
-          <div className="col-md-6 ta-right nav-font-size">
-            <span><a href={"/users/" + this.props.user.id + "/likes"}>My Likes</a> | <a href="/logout">Logout</a></span> 
-          </div>
+            {(this.props.user !== null) ? <UserLoggedInFeature user={this.props.user} /> : null}
         </nav>
       </div>
     );
