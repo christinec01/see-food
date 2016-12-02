@@ -149,7 +149,7 @@ export default class Main extends React.Component {
       </div>
 
           {spot ?
-            <div className="row">
+            <div>
             <div className="col-sm-2">
               <button
                 style={{marginTop: '200 auto'}}
@@ -161,7 +161,9 @@ export default class Main extends React.Component {
               </button>
             </div>
             <div className="col-sm-6 col-md-6" >
+
                 <img className="card-img-top index-pic" src={spot.url}/>
+
             </div>
             <div className="col-sm-2">
               <button
@@ -176,6 +178,29 @@ export default class Main extends React.Component {
                 LIKE
               </button>
             </div>
+
+          <div className="col-sm-2" style={{position: 'absolute', top: '100px', left: '1600px'}}>
+            <div className="card hide-show-likes-card">
+            <div className="card-block">
+            <div className="card-title">
+            <button
+            className="btn btn-sm hide-show-likes-button"
+              onClick={this.toggleLikes}>{this.state.showLikes ? 'Hide my likes' : 'Show my likes'}
+              </button>
+              </div>
+              <div className="card-text">
+              {this.state.showLikes ?
+                <ul className="my-likes-list">
+                    {this.state.likedSpots.map((spot, i) => (
+                      <p onClick={this.showRestaurantsModal} data-index={i}>{spot.name}</p>
+                      ))}
+                </ul> : null
+              }
+              </div>
+              </div>
+              </div>
+            </div>
+
             </div>
             : <div>No More Foods To See...</div>}
 
