@@ -21,6 +21,7 @@ export default class NavBar extends React.Component {
               </form>
             </div>
           </div>
+            {(this.props.user !== null) ? <UserLoggedInFeature user={this.props.user} /> : null}
         </nav>
       </div>
     );
