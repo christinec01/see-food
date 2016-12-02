@@ -10,19 +10,23 @@ export default class NavBar extends React.Component {
   render() {
 
     return (
-      <div className="row">
-        <nav className="navbar navbar-default">
-          <div className="col-md-6">
-            <div className="container-fluid">
-              <a className="navbar-brand nav-font-size" href="/landings">See Food</a>
-              <form className="zip-form nav-font-size" action="/landings" method="POST">
-                <input type="text" name="zip" placeholder="Enter zip code" />
-                <input className="btn btn-primary btn-lg" type="submit" value="Submit" />
-              </form>
+      <div className="nav-style">
+        <div className="row">
+          <nav className="navbar navbar-default">
+            <div className="col-md-10">
+              <div className="container-fluid">
+                <a className="navbar-brand nav-link" href="/landings"><h2>See FOOD</h2></a>
+                <form className="zip-form" action="/landings" method="POST">
+                  <input className="nav-search" type="text" name="zip" placeholder="Zip Code" />
+                  <input className="btn btn-default" type="submit" value="Go!" />
+                </form>
+              </div>
             </div>
-          </div>
+
             {(this.props.user !== null) ? <UserLoggedInFeature user={this.props.user} /> : null}
-        </nav>
+
+          </nav>
+        </div>
       </div>
     );
   }
