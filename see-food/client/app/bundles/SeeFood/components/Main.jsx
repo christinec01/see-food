@@ -190,7 +190,7 @@ export default class Main extends React.Component {
             handleClose={this.hideRestaurantsModal}
           />
       </div>
-      <div className="col-sm-2" style={{position: 'absolute', top: '100px', left: '1600px'}}>
+      <div className="col-sm-2" style={{position: 'inherit', top: '100px', left: '1600px'}}>
         <div className="card">
         <div className="card-block">
         <div className="card-title">
