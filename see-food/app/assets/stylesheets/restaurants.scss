@@ -184,6 +184,21 @@ body{
   .email-btn{
     margin-bottom: -1%;
   }
+  .card{
+    background-color:#efd6ac;
+    border:0px;
+    border-radius: 0px;
+  }
+  .card-title{
+    background-color:#efd6ac;
+    border:0px;
+    border-radius:0px;
+  }
+  .like-button{
+    background-color: #586BA4;
+    color:#fff;
+    margin-left:15%;
+  }
 
 .img-likes {
     border-style: solid;
@@ -264,9 +279,7 @@ body{
   font-weight: 800;
 }
 
-.card-title{
-  background-color: white;
-}
+
 
 .card {
   margin: 20px;

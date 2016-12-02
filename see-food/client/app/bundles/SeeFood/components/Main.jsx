@@ -218,7 +218,7 @@ export default class Main extends React.Component {
         <div className="card-block">
         <div className="card-title">
         <button
-        className="btn btn-sm"
+        className="btn btn-sm like-button"
           onClick={this.toggleLikes}>{this.state.showLikes ? 'Hide my likes' : 'Show my likes'}
           </button>
           </div>
