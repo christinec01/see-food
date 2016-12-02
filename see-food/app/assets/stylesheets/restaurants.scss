@@ -153,17 +153,69 @@ body{
   .email-btn{
     margin-top: -15%;
   }
-  img{
+img{
     border-style: solid;
     border-width: 25px;
-
     max-width: 100%;
     width:100%;
-
   }
 
 .card-img-top{
   border: 25px solid #586BA4;
+}
+
+.landing-title{
+  color: #DD614A;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1px;
+  font-size: 4em;
+}
+
+.zip-form{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.5em;
+}
+
+.zip-submit-button{
+  background-color: #586BA4;
+  font-size: 1.15em;
+  margin: 10px;
+  color: #ccc;
+}
+
+.zip-submit-button:hover{
+  background-color: #DD614A;
+}
+
+.register-button, .login-button{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.5em;
+  background-color: #586BA4;
+  border-radius: 10px;
+}
+
+.register-button:hover, .login-button:hover{
+  background-color: #DD614A;
+}
+
+.login-register-form{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.5em;
+}
+
+.login-register-form-button{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1px;
+  font-size: 1em;
+  background-color: #586BA4;
+  border-radius: 10px;
+}
+
+.login-register-form-button:hover{
+  background-color: #DD614A;
 }
 
 .jumbotron{
