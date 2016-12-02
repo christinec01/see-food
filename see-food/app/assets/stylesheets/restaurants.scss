@@ -70,6 +70,7 @@
 
 h1 {
   color: #ffffff;
+
 }
 
 .index-pic{
@@ -254,6 +255,7 @@ img{
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 4em;
   letter-spacing: 1px;
+  padding: 0px;
 }
 
 .card-block{
@@ -392,4 +394,16 @@ iframe {
 
 h3 {
   background-color: #ffa928;
+}
+.input-small{
+  font: initial;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  background-color:rgb(191, 220, 250);
+  font-color:#fff;
+}
+.btn-secondary{
+
+  background-color:#586BA4;
+  color:#fff;
+  font-size: 10px;
 }

@@ -14,10 +14,14 @@ export default class Main extends React.Component {
       showLikes: false,
       showRestaurantsModal: false,
       restaurantIndex: 0,
-      spots: this.props,
+      spots: [],
       sendEmail: false,
       enterEmail: '',
     };
+  }
+
+  componentWillMount() {
+    this.setState({spots: this.props.spots})
   }
 
   handleClick = (e) => {
@@ -61,16 +65,18 @@ export default class Main extends React.Component {
       this.setState({
         likedSpots: this.state.likedSpots.concat(spotToSave),
       });
+      this.nextSlide();
     }
     else if (e.target.dataset.label === 'dislike') {
-      let spotToRemove = this.props.spots[this.state.currentRestaurantIndex];
-
+      // let spotToRemove = this.state.spots[this.state.currentRestaurantIndex];
+      let newSpots = this.state.spots.slice();
+      newSpots.splice([this.state.currentRestaurantIndex], 1);
       this.setState({
-        spots: this.props.spots.splice([this.state.currentRestaurantIndex], 1),
+        spots: newSpots,
       });
+      this.nextSlide(newSpots.length);
     }
     // console.log('click', this.props.spots.length);
-    this.nextSlide();
   }
   // sendEmail() {
   //   const email = {
@@ -108,8 +114,9 @@ export default class Main extends React.Component {
       showLikes: !this.state.showLikes,
     });
   }
-  nextSlide = () => {
-    if (this.state.currentRestaurantIndex === this.props.spots.length) {
+  nextSlide = (length) => {
+    let compareLength = length ? length : this.state.spots.length;
+    if (this.state.currentRestaurantIndex >= compareLength - 2) {
       // console.log("here in the method")
       this.setState({
         currentRestaurantIndex: 0,
@@ -124,12 +131,11 @@ export default class Main extends React.Component {
     // this.state.currentRestaurantIndex
     // console.log(this.state.currentRestaurantIndex)
     let {currentRestaurantIndex} = this.state;
-    let {spots} = this.props;
+    let {spots} = this.state;
     let spot = spots[currentRestaurantIndex];
     return (
-
-      <div className="container .background-site" >
-      <h1 className="jumbotron">
+      <div>
+      <div className="background-site" >
 
       <div className="email-btn">
       <button
@@ -139,10 +145,11 @@ export default class Main extends React.Component {
       className="btn btn-sm btn-secondary"
       onClick={this.handleChange}>Send my likes to a friend!
       </button>
-      <input type="text" className="input-large search-query" onChange={this.handleEmailChange} name={this.state.enterEmail} />
+      <input type="text" className="input-small search-query" onChange={this.handleEmailChange} name={this.state.enterEmail} />
       </div>
-      </h1>
-          <div className="row" style={{marginTop: '20%'}}>
+
+          {spot ?
+            <div className="row">
             <div className="col-sm-2">
               <button
                 style={{marginTop: '200 auto'}}
@@ -154,13 +161,13 @@ export default class Main extends React.Component {
               </button>
             </div>
             <div className="col-sm-6 col-md-6" >
+
                 <img className="card-img-top index-pic" src={spot.url}/>
 
             </div>
             <div className="col-sm-2">
               <button
-                style={{cursor: 'pointer', zIndex: 99, marginTop: '200 auto'}}
-                type="button"
+                style={{cursor: 'pointer', zIndex: 99, marginTop: '200 auto'}} type="button"
                 data-label="like"
                 data-name={spot.name}
                 data-address={spot.location.display_address[0] + " " + spot.location.display_address[1]}
@@ -171,26 +178,8 @@ export default class Main extends React.Component {
                 LIKE
               </button>
             </div>
-          <div className="col-sm-2">
-            <div className="card">
-            <div className="card-block">
-            <div className="card-title">
-            <button
-            className="btn btn-sm"
-              onClick={this.toggleLikes}>{this.state.showLikes ? 'Hide my likes' : 'Show my likes'}
-              </button>
-              </div>
-              {this.state.showLikes ?
-                <ul className="my-likes-list">
-                    {this.state.likedSpots.map((spot, i) => (
-                      <p onClick={this.showRestaurantsModal} data-index={i}>{spot.name}</p>
-                      ))}
-                </ul> : null
-              }
-              </div>
-              </div>
             </div>
-            </div>
+            : <div>No More Foods To See...</div>}
 
           <RestaurantsModal
             map_key={this.props.map_key}
@@ -200,6 +189,26 @@ export default class Main extends React.Component {
             handleClose={this.hideRestaurantsModal}
           />
       </div>
+      <div className="col-sm-2" style={{position: 'absolute', top: '100px', left: '1600px'}}>
+        <div className="card">
+        <div className="card-block">
+        <div className="card-title">
+        <button
+        className="btn btn-sm"
+          onClick={this.toggleLikes}>{this.state.showLikes ? 'Hide my likes' : 'Show my likes'}
+          </button>
+          </div>
+          {this.state.showLikes ?
+            <ul className="my-likes-list">
+                {this.state.likedSpots.map((spot, i) => (
+                  <p onClick={this.showRestaurantsModal} data-index={i}>{spot.name}</p>
+                  ))}
+            </ul> : null
+          }
+          </div>
+          </div>
+        </div>
+        </div>
     );
   }
 }
