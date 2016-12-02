@@ -62,9 +62,10 @@ class UserLogin extends React.Component {
 
 		return (
 			<form className="session-edit login-register-form" action="/login" method="POST">
-
-				<input name="email" onBlur={this.onBlur} onChange={this.handleChange} type="email" placeholder="Email"/>
-				<input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
+				<div>
+					<input name="email" onBlur={this.onBlur} onChange={this.handleChange} type="email" placeholder="Email"/>
+					<input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
+				</div>
 				<button className="landing-buttons login-register-form-button" type="submit"> Login </button>
 			</form>
 			)
