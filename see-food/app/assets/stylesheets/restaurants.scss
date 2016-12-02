@@ -192,13 +192,30 @@ img{
   letter-spacing: 1px;
   font-size: 1.5em;
   background-color: #586BA4;
+  border-radius: 10px;
 }
 
 .register-button:hover, .login-button:hover{
   background-color: #DD614A;
 }
 
+.login-register-form{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.5em;
+}
 
+.login-register-form-button{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1px;
+  font-size: 1em;
+  background-color: #586BA4;
+  border-radius: 10px;
+}
+
+.login-register-form-button:hover{
+  background-color: #DD614A;
+}
 
 .jumbotron{
   background-color: #FFA928;

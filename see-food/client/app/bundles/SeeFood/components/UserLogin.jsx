@@ -16,10 +16,10 @@ class UserLogin extends React.Component {
 
 	createSession = (event) => {
 		const session = {
-			email: this.email.value, 
+			email: this.email.value,
 			password: this.password.value,
 		}
-		
+
 		// this.sessionForm.reset();
 	}
 
@@ -61,11 +61,11 @@ class UserLogin extends React.Component {
 		// console.log(this.state)
 
 		return (
-			<form className="session-edit" action="/login" method="POST">
-				
+			<form className="session-edit login-register-form" action="/login" method="POST">
+
 				<input name="email" onBlur={this.onBlur} onChange={this.handleChange} type="email" placeholder="Email"/>
 				<input name="password" onChange={this.handleChange} type="password" placeholder="Password"/>
-				<button className="landing-buttons" type="submit"> Login </button>
+				<button className="landing-buttons login-register-form-button" type="submit"> Login </button>
 			</form>
 			)
 	}

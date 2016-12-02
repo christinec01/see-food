@@ -64,8 +64,8 @@ class Form extends React.Component {
         <div className="modal-content zip-modal">
           <div className="modal-body">
           {this.props.showUserLoginForm || this.props.showRegistrationForm ? null : <h1 className="landing-title">See Food</h1> }
-          {this.props.showRegistrationForm ? <h1>Register</h1> : null }
-          {this.props.showUserLoginForm ? <h1>Log In</h1> : null }
+          {this.props.showRegistrationForm ? <h1 className="landing-title">Register</h1> : null }
+          {this.props.showUserLoginForm ? <h1 className="landing-title">Log In</h1> : null }
           {(this.props.showUserLoginForm || this.props.showRegistrationForm) ? null :
             <form className="zip-form" action="/landings" method="POST">
               <input type="text" name="zip" placeholder="Enter zip code" />
