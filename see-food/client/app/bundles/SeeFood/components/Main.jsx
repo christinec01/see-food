@@ -129,12 +129,22 @@ export default class Main extends React.Component {
     return (
 
       <div className="container .background-site" >
+      <div className="email-btn">
+      <button
+      style={{cursor: 'pointer', zIndex: 99, marginTop: '200 auto'}}
+      data-email="email"
+      data-name="enterEmail"
+      className="btn btn-sm btn-secondary"
+      onClick={this.handleChange}>Send my likes to a friend!
+      </button>
+      <input type="text" className="input-large search-query" onChange={this.handleEmailChange} name={this.state.enterEmail} />
+      </div>
           <div className="row" style={{marginTop: '20%'}}>
             <div className="col-sm-2">
               <button
                 style={{marginTop: '200 auto'}}
                 type="button"
-                className="btn btn-lg btn-warning no-thanks pic-button"
+                className="btn btn-lg btn-warning no-thanks pic-button grow"
                 data-label="dislike"
                 onClick={this.handleRating}>
                 NO THANKS
@@ -142,11 +152,8 @@ export default class Main extends React.Component {
             </div>
             <div className="col-sm-6 col-md-6" >
                 <img className="card-img-top index-pic" src={spot.url}/>
-                  <div className="card-block">
 
-
-                  </div>
-        				</div>
+            </div>
             <div className="col-sm-2">
               <button
                 style={{cursor: 'pointer', zIndex: 99, marginTop: '200 auto'}}
@@ -156,36 +163,32 @@ export default class Main extends React.Component {
                 data-address={spot.location.display_address[0] + " " + spot.location.display_address[1]}
                 data-phone={spot.phone}
                 data-picurl={spot.url}
-                className="btn btn-lg btn-danger like pic-button"
+                className="btn btn-lg btn-danger like pic-button grow"
                 onClick={this.handleRating}>
                 LIKE
               </button>
             </div>
           <div className="col-sm-2">
+            <div className="card">
+            <div className="card-block">
+            <div className="card-title">
             <button
+            className="btn btn-sm"
               onClick={this.toggleLikes}>{this.state.showLikes ? 'Hide my likes' : 'Show my likes'}
               </button>
+              </div>
               {this.state.showLikes ?
-                <ul>
+                <ul className="my-likes-list">
                     {this.state.likedSpots.map((spot, i) => (
-                      <li onClick={this.showRestaurantsModal} data-index={i}>{spot.name}</li>
+                      <p onClick={this.showRestaurantsModal} data-index={i}>{spot.name}</p>
                       ))}
                 </ul> : null
               }
+              </div>
+              </div>
             </div>
             </div>
-            <div className="row" style={{marginTop: '-20%'}}>
-            <div className="col-sm-2 email-btn">
-            <button
-            style={{cursor: 'pointer', zIndex: 99, marginTop: '200 auto'}}
-            data-email="email"
-            data-name="enterEmail"
-            className="btn btn-sm btn-warning email-btn"
-            onClick={this.handleChange}>Send my likes to a friend!
-            </button>
-            <input type="text" className="input-large search-query" onChange={this.handleEmailChange} name={this.state.enterEmail} />
-            </div>
-            </div>
+
           <RestaurantsModal
             map_key={this.props.map_key}
             open={this.state.showRestaurantsModal}
