@@ -169,17 +169,23 @@ export default class Main extends React.Component {
               </button>
             </div>
           <div className="col-sm-2">
+            <div className="card">
+            <div className="card-block">
+            <div className="card-title">
             <button
-            className="btn btn-lg btn-success"
+            className="btn btn-sm"
               onClick={this.toggleLikes}>{this.state.showLikes ? 'Hide my likes' : 'Show my likes'}
               </button>
+              </div>
               {this.state.showLikes ?
-                <ul>
+                <ul className="my-likes-list">
                     {this.state.likedSpots.map((spot, i) => (
-                      <li onClick={this.showRestaurantsModal} data-index={i}>{spot.name}</li>
+                      <p onClick={this.showRestaurantsModal} data-index={i}>{spot.name}</p>
                       ))}
                 </ul> : null
               }
+              </div>
+              </div>
             </div>
             </div>
 
