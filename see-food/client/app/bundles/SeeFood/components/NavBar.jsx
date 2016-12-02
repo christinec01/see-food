@@ -12,16 +12,18 @@ export default class NavBar extends React.Component {
     return (
       <div className="row">
         <nav className="navbar navbar-default">
-          <div className="col-md-6">
+          <div className="col-md-10">
             <div className="container-fluid">
               <a className="navbar-brand nav-font-size" href="/landings">See Food</a>
               <form className="zip-form nav-font-size" action="/landings" method="POST">
-                <input type="text" name="zip" placeholder="Enter zip code" />
-                <input className="btn btn-primary btn-lg" type="submit" value="Submit" />
+                <input className="nav-search" type="text" name="zip" placeholder="Enter zip code" />
+                <input className="btn btn-default" type="submit" value="Submit" />
               </form>
             </div>
           </div>
-            {(this.props.user !== null) ? <UserLoggedInFeature user={this.props.user} /> : null}
+
+          {(this.props.user !== null) ? <UserLoggedInFeature user={this.props.user} /> : null}
+
         </nav>
       </div>
     );
