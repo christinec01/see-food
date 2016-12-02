@@ -256,13 +256,16 @@ body{
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 4em;
   letter-spacing: 1px;
-  padding: 0px;
 }
 
 .card-block{
   font-family: 'Yanone Kaffeesatz', sans-serif;
   letter-spacing: 1px;
   font-weight: 800;
+}
+
+.card-title{
+  background-color: white;
 }
 
 .card {
