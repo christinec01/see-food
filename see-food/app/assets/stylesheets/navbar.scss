@@ -7,22 +7,35 @@
 .nav-search {
   padding-left: 10px;
   padding-right: 200px;
+  margin-top: 5px;
   margin-right: 10px;
   border-radius: 20px;
 }
 
 .btn-default {
+  border: 0.8em;
   border-radius: 20px;
   font-size: 0.9em;
   background-color: #eceeef;
 }
 
-.nav-color {
-  padding-top: 20px;
-  padding-bottom: -5px;
+.nav-style {
+  font-size: 1.2em;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  letter-spacing: 1px;
+  padding-top: 10px;
   background-color: #586BA4;
 }
 
 .nav-link {
   color: #DD614A;
+}
+
+.nav-log {
+  margin-top: 5px;
+  font-size: 1.2em;
+}
+
+.navbar-brand {
+  padding-top: 5px;
 }
