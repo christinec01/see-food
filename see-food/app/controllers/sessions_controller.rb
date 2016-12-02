@@ -21,10 +21,6 @@ class SessionsController < ApplicationController
     end
   end
 
-  def logged_in?
-    session[:username] ? true : false
-  end
-
   def destroy
     session[:user_id] = nil
     redirect_to '/'
