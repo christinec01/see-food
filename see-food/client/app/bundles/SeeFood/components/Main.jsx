@@ -129,6 +129,8 @@ export default class Main extends React.Component {
     return (
 
       <div className="container .background-site" >
+      <h1 className="jumbotron">
+
       <div className="email-btn">
       <button
       style={{cursor: 'pointer', zIndex: 99, marginTop: '200 auto'}}
@@ -139,6 +141,7 @@ export default class Main extends React.Component {
       </button>
       <input type="text" className="input-large search-query" onChange={this.handleEmailChange} name={this.state.enterEmail} />
       </div>
+      </h1>
           <div className="row" style={{marginTop: '20%'}}>
             <div className="col-sm-2">
               <button
