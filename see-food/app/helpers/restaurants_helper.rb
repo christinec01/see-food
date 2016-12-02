@@ -12,7 +12,11 @@ module RestaurantsHelper
       token_secret: ENV['TOKEN_SECRET']
     })
 
+<<<<<<< HEAD
     client.search(zip_code, { term: "food", limit: 3 })
+=======
+    client.search(zip_code, { term: "food"})
+>>>>>>> fc73c57f9350e33951cfd4ace1cd565765d9d7e2
   end
 
   def search_image(image)
