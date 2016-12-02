@@ -63,22 +63,22 @@ class Form extends React.Component {
       <div className="container">
         <div className="modal-content zip-modal">
           <div className="modal-body">
-          {this.props.showUserLoginForm || this.props.showRegistrationForm ? null : <h1>See Food</h1> }
+          {this.props.showUserLoginForm || this.props.showRegistrationForm ? null : <h1 className="landing-title">See Food</h1> }
           {this.props.showRegistrationForm ? <h1>Register</h1> : null }
           {this.props.showUserLoginForm ? <h1>Log In</h1> : null }
           {(this.props.showUserLoginForm || this.props.showRegistrationForm) ? null :
             <form className="zip-form" action="/landings" method="POST">
               <input type="text" name="zip" placeholder="Enter zip code" />
-              <input className="btn btn-primary btn-sm" type="submit" value="Submit" />
+              <input className="btn btn-primary btn-sm zip-submit-button" type="submit" value="Submit" />
             </form> }
 
             <div className="modal-footer">
 
-              {this.props.showRegistrationForm || this.props.showUserLoginForm ? null : <input onClick={this.props.handleRegistrationClick} type="submit" value="Register" className="landing-buttons btn btn-outline-secondary" /> }
+              {this.props.showRegistrationForm || this.props.showUserLoginForm ? null : <input onClick={this.props.handleRegistrationClick} type="submit" value="Register" className="landing-buttons btn btn-outline-secondary register-button" /> }
 
               {this.props.showRegistrationForm ? <Registration /> : null}
 
-              {this.props.showUserLoginForm || this.props.showRegistrationForm ? null : <input onClick={this.props.handleClick} type="submit" value="Login" className="landing-buttons btn btn-outline-secondary" /> }
+              {this.props.showUserLoginForm || this.props.showRegistrationForm ? null : <input onClick={this.props.handleClick} type="submit" value="Login" className="landing-buttons btn btn-outline-secondary login-button" /> }
 
               {this.props.showUserLoginForm ? <UserLogin /> : null }
 
