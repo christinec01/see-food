@@ -6,8 +6,4 @@ class LikesController < ApplicationController
 		@restaurants = @user.likes.map {|like| like.restaurant }
   end
 
-  def destroy
-    
-  end
-
 end

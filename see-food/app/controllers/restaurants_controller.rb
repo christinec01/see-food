@@ -20,7 +20,6 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    # expecting a spot from front end
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.save
 
@@ -31,7 +30,6 @@ class RestaurantsController < ApplicationController
   end
 
   def sendEmail
-      p params[:likedSpots]
     ExampleMailer.sample_email(params).deliver_now
     render json: params
 

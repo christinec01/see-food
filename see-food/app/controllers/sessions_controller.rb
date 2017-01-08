@@ -1,9 +1,5 @@
 class SessionsController < ApplicationController
 
-  def new
-
-  end
-
   def create
     if !params[:email] || !params[:password]
       render json: {errors: ["Need params"]}, status: 400
