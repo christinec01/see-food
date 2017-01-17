@@ -1,8 +1,8 @@
 # See-Food
-![logo](app/assets/images/logo.jpg)
+![logo](app/assets/images/logo.png)
 
 ## Schema
-![schema](/schema.png)
+![schema](/Schema.png)
 
 ## User stories
 
@@ -34,10 +34,10 @@
 ![workflow2](app/assets/images/workflow2.jpg)
 
 ##Stack
-![stack](app/assets/images/stack.jpg)
+![stack](app/assets/images/stack.png)
 
 ## Our Team
-![team](app/assets/images/team.jpg)
+![team](app/assets/images/team.png)
 
 ## Live walkthrough
 [Live walkthrough](https://youtu.be/v4oiyqpCmzA)
